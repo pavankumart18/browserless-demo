@@ -1,0 +1,282 @@
+[
+  {
+    "source": "HackerNews",
+    "url": "https://news.ycombinator.com/from?site=agent-safehouse.dev",
+    "title": "Submissions from agent-safehouse.dev | Hacker News",
+    "description": "",
+    "content": ""
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://news.ycombinator.com/from?site=youtube.com",
+    "title": "Submissions from youtube.com | Hacker News",
+    "description": "",
+    "content": ""
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://news.ycombinator.com/from?site=silly.business",
+    "title": "Submissions from silly.business | Hacker News",
+    "description": "",
+    "content": ""
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://news.ycombinator.com/from?site=github.com/dieu-de-l-elec",
+    "title": "Submissions from github.com/dieu-de-l-elec | Hacker News",
+    "description": "",
+    "content": ""
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://silly.business/blog/we-should-revisit-literate-programming-in-the-agent-era/",
+    "title": "We Should Revisit Literate Programming in the Agent Era | silly business",
+    "description": "\nLiterate programming is the idea that code should be intermingled with prose such that an uninformed reader could read a code base as a narrative, and come away with an understanding of how it works and what it does.\n\nAlthough I have long been intrigued by this idea, and have found uses for it in a couple1 of different cases2, I have found that in practice literate programming turns into a chore of maintaining two parallel narratives: the code itself, and the prose. This has obviously limited its adoption.",
+    "content": "07 Mar, 2026 Literate programming is the idea that code should be intermingled with prose such that an uninformed reader could read a code base as a narrative, and come away with an understanding of how it works and what it does. Although I have long been intrigued by this idea, and have found uses for it in a couple1 of different cases2, I have found that in practice literate programming turns into a chore of maintaining two parallel narratives: the code itself, and the prose. This has obviously limited its adoption. Historically in practice literate programming is most commonly found as Jupyter notebooks in the data science community, where explanations live alongside calculations and their results in a web browser. Frequent readers of this blog will be aware that Emacs Org Mode supports polyglot literate programming through its org-babel package, allowing execution of arbitrary languages with results captured back into the document, but this has remained a niche pattern for nerds like me."
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://news.ycombinator.com/from?site=smartlab.at",
+    "title": "Submissions from smartlab.at | Hacker News",
+    "description": "",
+    "content": ""
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://agent-safehouse.dev/",
+    "title": "Agent Safehouse",
+    "description": "Sandbox your LLM coding agents on macOS. Kernel-level enforcement via sandbox-exec — deny-first, composable, zero dependencies.",
+    "content": "macOS-native sandboxing for local agents. Move fast, break nothing. LLMs are probabilistic - 1% chance of disaster makes it a matter of when, not if. Safehouse makes this a 0% chance — enforced by the kernel. Safehouse only grants write access to your chosen workdir. Every other directory on disk — including sibling repos — is denied by default. All agents work perfectly in their sandboxes, but can't impact anything outside it."
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://www.smartlab.at/rss-revival-life-after-social-media/",
+    "title": "The Death of Social Media is the Renaissance of RSS – Smartlab",
+    "description": "",
+    "content": "Smartlab Smart systems, artificial intelligence, data analysis, observability, 3D printing and software technology Social media was once hailed as the great democratizer of information. It promised a world where anyone could share their voice, connect with like-minded communities, and discover authentic human perspectives. But in 2025, the landscape looks very different. Social platforms are drowning in a flood of Generative AI (GenAI) content—articles, images, videos, and even entire conversations churned out at industrial scale. The result is a noisy ocean of sameness, where genuine human voices struggle to be heard. For years, one could track the slow decline of social platforms: from algorithmic manipulation and advertising overload, to bot armies, political polarization, and the prioritization of engagement over truth. Yet, the explosion of AI-generated content has dramatically accelerated this downfall. Instead of scrolling for connection, users now find themselves wading through endless streams of repetitive, shallow, or outright meaningless material. This is not just a temporary nuisance. It signals the death of social media as we know it. And in this environment, an old technology—long thought to be obsolete—emerges as a savior: RSS, or Really Simple Syndication. RSS offers a way out of the algorithmic maze, a return to authenticity, and a chance to reclaim control over the information we consume. This article explores why AI-generated content is destroying social media, how RSS provides a viable and elegant solution, and why now might be the perfect moment to revive this forgotten technology."
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://github.com/Dieu-de-l-elec/AngstromIO-devboard",
+    "title": "GitHub - Dieu-de-l-elec/AngstromIO-devboard: AngstromIO, one of the smallest devboards out there, barely longer than a USB C connector, based on the Attiny1616 MCU. And a dual CH340 board for programming and debugging, and another devboard, based on the CH32V003 · GitHub",
+    "description": "AngstromIO, one of the smallest devboards out there, barely longer than a USB C connector, based on the Attiny1616 MCU. And a dual CH340 board for programming and debugging, and another devboard, based on the CH32V003 - Dieu-de-l-elec/AngstromIO-devboard",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n            AngstromIO is one of the smallest devboards out there, barely longer than a USB-C connector, based on the Attiny1616 MCU. 2 GPIOs as well as I2C lines are broken out. I made a dual CH340 programming board too, both for UPDI programming and debugging (one way Serial Communication). I also designed a breadboard friendly, experimentation board for the CH32V003, with a 4 by 5 charlieplexed LED matrix. While the AngstromIO is a tiny devboard, yet powerful, that could be embbeded in any space constrained projects, the CH32 devboard is more an experimentation board, for me to learn how to program this awesome chip on the MounriverStudio programming and how to program a charlieplexed matrix. The Programmer is an all in one module, that will make debugging with the Serial monitor while programming easy: one board for both."
+  },
+  {
+    "source": "HackerNews",
+    "url": "https://www.youtube.com/watch?v=qZuR-772cks",
+    "title": "Microscopes can See Video on a LaserDisc - Andonstar AD246S-P - YouTube",
+    "description": "I was messing around with a microscope and some random samples and found out I could see some interesting things. And then I saw something magical...so I had...",
+    "content": "Follow along using the transcript. Follow along using the transcript."
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/openai/skills",
+    "title": "GitHub - openai/skills: Skills Catalog for Codex · GitHub",
+    "description": "Skills Catalog for Codex. Contribute to openai/skills development by creating an account on GitHub.",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           Agent Skills are folders of instructions, scripts, and resources that AI agents can discover and use to perform at specific tasks. Write once, use everywhere. Codex uses skills to help package capabilities that teams and individuals can use to complete specific tasks in a repeatable way. This repository catalogs skills for use and distribution with Codex. Learn more:"
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/shareAI-lab/learn-claude-code",
+    "title": "GitHub - shareAI-lab/learn-claude-code: Bash is all you need - A nano Claude Code–like agent, built from 0 to 1 · GitHub",
+    "description": "Bash is all you need -  A nano Claude Code–like agent, built from 0 to 1 - shareAI-lab/learn-claude-code",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           English | 中文 | 日本語 \n Scan with Wechat to fellow us,\nor fellow on X: shareAI-Lab"
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/pbakaus/impeccable",
+    "title": "GitHub - pbakaus/impeccable: The design language that makes your AI harness better at design. · GitHub",
+    "description": "The design language that makes your AI harness better at design. - pbakaus/impeccable",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           The vocabulary you didn't know you needed. 1 skill, 17 commands, and curated anti-patterns for impeccable frontend design. Quick start: Visit impeccable.style to download ready-to-use bundles. Anthropic created frontend-design, a skill that guides Claude toward better UI design. Impeccable builds on that foundation with deeper expertise and more control."
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/teng-lin/notebooklm-py",
+    "title": "GitHub - teng-lin/notebooklm-py: Unofficial Python API for Google NotebookLM · GitHub",
+    "description": "Unofficial Python API for Google NotebookLM. Contribute to teng-lin/notebooklm-py development by creating an account on GitHub.",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n            Comprehensive Python API for Google NotebookLM. Full programmatic access to NotebookLM's features—including capabilities the web UI doesn't expose—from Python or the command line.    "
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/shadcn-ui/ui",
+    "title": "GitHub - shadcn-ui/ui: A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code. · GitHub",
+    "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code. - shadcn-ui/ui",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n                    There was an error while loading. Please reload this page. "
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/666ghj/MiroFish",
+    "title": "GitHub - 666ghj/MiroFish: A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物 · GitHub",
+    "description": "A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物 - 666ghj/MiroFish",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n            简洁通用的群体智能引擎，预测万物\nA Simple and Universal Swarm Intelligence Engine, Predicting Anything "
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/Ed1s0nZ/CyberStrikeAI",
+    "title": "GitHub - Ed1s0nZ/CyberStrikeAI: CyberStrikeAI is an AI-native security testing platform built in Go. It integrates 100+ security tools, an intelligent orchestration engine, role-based testing with predefined security roles, a skills system with specialized testing skills, and comprehensive lifecycle management capabilities. · GitHub",
+    "description": "CyberStrikeAI is an AI-native security testing platform built in Go. It integrates 100+ security tools, an intelligent orchestration engine, role-based testing with predefined security roles, a skills system with specialized testing skills, and comprehensive lifecycle management capabilities. - Ed1s0nZ/CyberStrikeAI",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           中文 | English CyberStrikeAI is an AI-native security testing platform built in Go. It integrates 100+ security tools, an intelligent orchestration engine, role-based testing with predefined security roles, a skills system with specialized testing skills, and comprehensive lifecycle management capabilities. Through native MCP protocol and AI agents, it enables end-to-end automation from conversational commands to vulnerability discovery, attack-chain analysis, knowledge retrieval, and result visualization—delivering an auditable, traceable, and collaborative testing environment for security teams. The dashboard provides a comprehensive overview of system runtime status, security vulnerabilities, tool usage, and knowledge base, helping users quickly understand the platform's core features and current state."
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/GoogleCloudPlatform/generative-ai",
+    "title": "GitHub - GoogleCloudPlatform/generative-ai: Sample code and notebooks for Generative AI on Google Cloud, with Gemini on Vertex AI · GitHub",
+    "description": "Sample code and notebooks for Generative AI on Google Cloud, with Gemini on Vertex AI - GoogleCloudPlatform/generative-ai",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           Gemini 3.1 Pro has been released! Here are the latest notebooks and demos using the new model: This repository contains notebooks, code samples, sample apps, and other resources that demonstrate how to use, develop and manage generative AI workflows using Generative AI on Google Cloud with Vertex AI."
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/toeverything/AFFiNE",
+    "title": "GitHub - toeverything/AFFiNE: There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use. · GitHub",
+    "description": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.  - GitHub - toeverything/AFFiNE: There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n           A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro.\nOne hyper-fused platform for wildly creative minds.    Star us, and you will receive all release notifications from GitHub without any delay!"
+  },
+  {
+    "source": "GitHub Trending",
+    "url": "https://github.com/openclaw/openclaw",
+    "title": "GitHub - openclaw/openclaw: Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 · GitHub",
+    "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞  - GitHub - openclaw/openclaw: Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞",
+    "content": "We read every piece of feedback, and take your input very seriously. \n            To see all available qualifiers, see our documentation.\n                    There was an error while loading. Please reload this page. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06495",
+    "title": "[2603.06495] COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
+    "description": "Abstract page for arXiv paper 2603.06495: COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06426",
+    "title": "[2603.06426] CLoPA: Continual Low Parameter Adaptation of Interactive Segmentation for Medical Image Annotation",
+    "description": "Abstract page for arXiv paper 2603.06426: CLoPA: Continual Low Parameter Adaptation of Interactive Segmentation for Medical Image Annotation",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06413",
+    "title": "[2603.06413] A Reference Architecture of Reinforcement Learning Frameworks",
+    "description": "Abstract page for arXiv paper 2603.06413: A Reference Architecture of Reinforcement Learning Frameworks",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06542",
+    "title": "[2603.06542] RAMoEA-QA: Hierarchical Specialization for Robust Respiratory Audio Question Answering",
+    "description": "Abstract page for arXiv paper 2603.06542: RAMoEA-QA: Hierarchical Specialization for Robust Respiratory Audio Question Answering",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06492",
+    "title": "[2603.06492] NOBLE: Accelerating Transformers with Nonlinear Low-Rank Branches",
+    "description": "Abstract page for arXiv paper 2603.06492: NOBLE: Accelerating Transformers with Nonlinear Low-Rank Branches",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06522",
+    "title": "[2603.06522] Artificial Intelligence for Detecting Fetal Orofacial Clefts and Advancing Medical Education",
+    "description": "Abstract page for arXiv paper 2603.06522: Artificial Intelligence for Detecting Fetal Orofacial Clefts and Advancing Medical Education",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06485",
+    "title": "[2603.06485] PONTE: Personalized Orchestration for Natural Language Trustworthy Explanations",
+    "description": "Abstract page for arXiv paper 2603.06485: PONTE: Personalized Orchestration for Natural Language Trustworthy Explanations",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06428",
+    "title": "[2603.06428] Abductive Reasoning with Syllogistic Forms in Large Language Models",
+    "description": "Abstract page for arXiv paper 2603.06428: Abductive Reasoning with Syllogistic Forms in Large Language Models",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06444",
+    "title": "[2603.06444] Prosodic Boundary-Aware Streaming Generation for LLM-Based TTS with Streaming Text Input",
+    "description": "Abstract page for arXiv paper 2603.06444: Prosodic Boundary-Aware Streaming Generation for LLM-Based TTS with Streaming Text Input",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "ArXiv AI",
+    "url": "https://arxiv.org/abs/2603.06459",
+    "title": "[2603.06459] Do Foundation Models Know Geometry? Probing Frozen Features for Continuous Physical Measurement",
+    "description": "Abstract page for arXiv paper 2603.06459: Do Foundation Models Know Geometry? Probing Frozen Features for Continuous Physical Measurement",
+    "content": "Help | Advanced Search arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website. Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them. Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs. "
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/2026_Afghanistan%E2%80%93Pakistan_war",
+    "title": "2026 Afghanistan–Pakistan war - Wikipedia",
+    "description": "",
+    "content": "\n \n On 21 February 2026, the Pakistan Air Force (PAF) conducted a series of airstrikes over the provinces of Nangarhar, Paktika, and Khost[16] in Afghanistan with the stated aim of targeting seven alleged militant camps belonging to the Pakistani Taliban (TTP) and the Islamic State – Khorasan Province (ISIS–K) in retaliation for recent terrorist attacks in Islamabad, Bajaur, and Bannu. Pakistan blamed the Afghan government for facilitating the attacks. Afghan officials stated that the airstrikes targeted civilian targets and religious centres and resulted in 18 civilian fatalities in Nangarhar province.[25][26][27][16] Pakistani officials denied Afghan authorities' allegations of targeting civilians in Afghanistan, while The Express Tribune, citing military sources, reported 80 militant fatalities.[14][28] While UNAMA also confirmed civilian casualties, Afghanistan condemned Pakistan's airstrikes and vowed a calculated response to the aggression.[29][30] On 26 February 2026, Afghanistan launched a retaliatory operation against Pakistan, engaging in border clashes and drone attacks on Pakistan. In response, Pakistan launched Operation Ghazab Lil Haq[f] against the Taliban.[31][32] This operation followed an escalation in border skirmishes and cross-border firing incidents along the Durand Line, involving the Afghan Taliban and Pakistan Armed Forces.[33] The following day, Defence Minister of Pakistan Khawaja Asif announced a state of \"open war\" with Afghanistan, with Pakistan escalating its airstrikes and striking targets throughout Afghanistan, including the capital of Kabul.[34]"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/2026_Winter_Paralympics",
+    "title": "2026 Winter Paralympics - Wikipedia",
+    "description": "",
+    "content": "\n \n The 2026 Winter Paralympics (Italian: Giochi paralimpici invernali di Milano Cortina 2026), also known as the Milano Cortina 2026 Winter Paralympic Games, is the 14th edition of the Winter Paralympic Games, an international winter multi-sport parasports event governed by the International Paralympic Committee. It is taking place from 6 to 15 March at sites across Lombardy and Northeast Italy, with competition in wheelchair curling beginning on 4 March. Marking the 50th anniversary of the inaugural Winter Paralympics in 1976, these will be the third Paralympic Games hosted in Italy, following the 1960 Summer Paralympics in Rome (the inaugural Paralympic Games) and the 2006 Winter Paralympics in Turin. In October 2018, the Italian National Olympic Committee officially confirmed plans for a bid by Milan and Cortina d'Ampezzo to host the Games.[4] The bid was presented at the general assembly of the Association of National Olympic Committees on 28 November 2018 in Tokyo.[5] The two cities were elected as hosts of both the 2026 Paralympics and Olympics on 24 June 2019 at the 134th IOC Session in Lausanne, Switzerland, defeating Sweden's joint bid of Stockholm and Åre.[6]"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Deaths_in_2026",
+    "title": "Deaths in 2026 - Wikipedia",
+    "description": "",
+    "content": "\n\n The following notable deaths occurred in 2026. Names are reported under the date of death, in alphabetical order. A typical entry reports information in the following sequence:"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/2026_Winter_Paralympics",
+    "title": "2026 Winter Paralympics - Wikipedia",
+    "description": "",
+    "content": "\n \n The 2026 Winter Paralympics (Italian: Giochi paralimpici invernali di Milano Cortina 2026), also known as the Milano Cortina 2026 Winter Paralympic Games, is the 14th edition of the Winter Paralympic Games, an international winter multi-sport parasports event governed by the International Paralympic Committee. It is taking place from 6 to 15 March at sites across Lombardy and Northeast Italy, with competition in wheelchair curling beginning on 4 March. Marking the 50th anniversary of the inaugural Winter Paralympics in 1976, these will be the third Paralympic Games hosted in Italy, following the 1960 Summer Paralympics in Rome (the inaugural Paralympic Games) and the 2006 Winter Paralympics in Turin. In October 2018, the Italian National Olympic Committee officially confirmed plans for a bid by Milan and Cortina d'Ampezzo to host the Games.[4] The bid was presented at the general assembly of the Association of National Olympic Committees on 28 November 2018 in Tokyo.[5] The two cities were elected as hosts of both the 2026 Paralympics and Olympics on 24 June 2019 at the 134th IOC Session in Lausanne, Switzerland, defeating Sweden's joint bid of Stockholm and Åre.[6]"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Assassination_of_Ali_Khamenei",
+    "title": "Assassination of Ali Khamenei - Wikipedia",
+    "description": "",
+    "content": "   \n\n On 28 February 2026, Ali Khamenei, the supreme leader of Iran, was assassinated as part of a series of Israeli airstrikes around Tehran aimed at high-ranking Iranian officials. Khamenei's death was confirmed by the Iranian government on 1 March.[2] His death occurred as part of a wider joint operation by the United States and Israel, using strategic locations intelligence from the US's Central Intelligence Agency to determine the whereabouts of several leaders.[3] According to retired Major-General Denis Thompson, Canadian forces from the Combined Aerospace Operations Center of the 1 Canadian Air Division also provided intelligence support for strikes during the assassination as well as intelligence support during the wider war as a whole, although the Canadian Department of National Defence has denied any involvement in Operation Epic Fury.[4] Satellite imagery suggested that Khamenei's residence in the city was severely damaged during the attack."
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Portal:Current_events",
+    "title": "Portal:Current events - Wikipedia",
+    "description": "",
+    "content": " Armed conflicts and attacks Business and economy Disasters and accidents Politics and elections"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/2026_Bolivian_Air_Force_Lockheed_C-130_crash",
+    "title": "2026 Bolivian Air Force Lockheed C-130 crash - Wikipedia",
+    "description": "",
+    "content": "\n On 27 February 2026, a Bolivian Air Force Lockheed C-130 Hercules on a domestic flight from Viru Viru International Airport, Santa Cruz de la Sierra, to El Alto International Airport, La Paz, suffered a runway excursion after landing and crashed onto a busy road, impacting 15 vehicles, killing at least 24 people, and injuring more than 43 others.[1][2] The aircraft was carrying a large shipment of newly printed banknotes on behalf of the Central Bank of Bolivia, intended to be distributed within the national monetary system. The impact scattered large quantities of banknotes across the crash site, drawing the attention of bystanders who attempted to collect the currency.[3] Law enforcement authorities subsequently secured the area and later destroyed the banknotes to prevent their circulation.[4] The aircraft involved in the accident was a 49-year-old Lockheed C-130H Hercules, tail number FAB-81.[5] The crew on board the aircraft consisted of eight people:[6]"
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Wikipedia:In_the_news/Candidates",
+    "title": "Wikipedia:In the news/Candidates - Wikipedia",
+    "description": "",
+    "content": "This page provides a place to discuss new items for inclusion on In the news (ITN), a protected template on the Main Page (see past items in the ITN archives). Do not report errors in ITN items that are already on the Main Page here – discuss those at the relevant section of WP:ERRORS. This candidates page is integrated with the daily pages of Portal:Current events. A light green header appears under each daily section – it includes transcluded Portal:Current events items for that day. You can discuss ITN candidates under the header. view — page history — related changes All articles linked in the ITN template must pass our standards of review. They should be up-to-date, demonstrate relevance via good sourcing and have at least an acceptable quality. The better your article's quality, the better it covers the event and the wider its perceived significance (see WP:ITNSIGNIF for details), the better your chances of getting the blurb posted."
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Assassination_of_Ali_Khamenei",
+    "title": "Assassination of Ali Khamenei - Wikipedia",
+    "description": "",
+    "content": "   \n\n On 28 February 2026, Ali Khamenei, the supreme leader of Iran, was assassinated as part of a series of Israeli airstrikes around Tehran aimed at high-ranking Iranian officials. Khamenei's death was confirmed by the Iranian government on 1 March.[2] His death occurred as part of a wider joint operation by the United States and Israel, using strategic locations intelligence from the US's Central Intelligence Agency to determine the whereabouts of several leaders.[3] According to retired Major-General Denis Thompson, Canadian forces from the Combined Aerospace Operations Center of the 1 Canadian Air Division also provided intelligence support for strikes during the assassination as well as intelligence support during the wider war as a whole, although the Canadian Department of National Defence has denied any involvement in Operation Epic Fury.[4] Satellite imagery suggested that Khamenei's residence in the city was severely damaged during the attack."
+  },
+  {
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/2026_Iran_war",
+    "title": "2026 Iran war - Wikipedia",
+    "description": "",
+    "content": " \n\n Wikimedia | © OpenStreetMap On 28 February 2026, the United States and Israel launched joint airstrikes on Iran, killing the supreme leader of Iran and many other Iranian officials, starting a war with the goal of regime change. Iran responded with missile and drone strikes against Israel and US bases and US allies in the region, including Azerbaijan, Bahrain, Iraq, Jordan, Kuwait, Oman, Qatar, Saudi Arabia, and the United Arab Emirates. After the Middle Eastern crisis began in 2023, Iran and Israel exchanged missile strikes in 2024, and again during their Twelve-Day War in June 2025, which also saw a US airstrike on Iran's nuclear facilities.[54] In January 2026, Iranian security forces killed thousands of protesters[55] during the largest protests since the Islamic Revolution.[56] Iran and the US held indirect nuclear negotiations in February,[57] while the US undertook its largest military buildup in the Middle East since the 2003 invasion of Iraq.[58]"
+  }
+]

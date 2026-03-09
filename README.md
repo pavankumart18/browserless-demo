@@ -1,6 +1,6 @@
 # Browserless Demo
 
-Node.js scripts that use **Browserless** (remote Chromium) with **Puppeteer** for browser automation, screenshots, PDF generation, and simple research/scraping agents.
+Node.js scripts that use **Browserless** (remote Chromium) with **Puppeteer** for parallel crawling, performance analysis, and scraping.
 
 **Prerequisites:** Docker (for Browserless) and Node.js.
 
@@ -14,7 +14,7 @@ Node.js scripts that use **Browserless** (remote Chromium) with **Puppeteer** fo
    docker run -p 3000:3000 ghcr.io/browserless/chromium
    ```
 
-   The WebSocket endpoint is `ws://localhost:3000`.
+   The WebSocket endpoint is `ws://localhost:3000` (scripts use `ws://localhost:3000/chromium`).
 
 2. **Install dependencies:**
 
@@ -22,87 +22,50 @@ Node.js scripts that use **Browserless** (remote Chromium) with **Puppeteer** fo
    npm install
    ```
 
-3. **Run any script** (see file descriptions and commands below).
+3. **Run any script** (see below).
 
 ---
 
-## Project Files Explained
+## Project Files
 
-### Scripts (run with `node <file>`)
+### Scripts
 
-| File | Purpose | Output / Behavior |
-|------|---------|-------------------|
-| `demo.js` | Basic automation: open Hacker News, scrape top 5 headline titles, print to console. | Console only |
-| `screenshot.js` | Opens openai.com and saves a full-page screenshot. | `openai.png` |
-| `github-screenshot.js` | Opens a single GitHub profile (pavankumart18), sets viewport, saves full-page screenshot. | `pavan-github.png` |
-| `multi-github-screenshot.js` | Opens multiple GitHub profile URLs in sequence and saves a screenshot per profile. | `pavankumart18.png`, `torvalds.png`, `openai.png` |
-| `github-pdf.js` | Opens a GitHub profile and generates an A4 PDF of the page. | `github-profile.pdf` |
-| `research-agent.js` | Asks for a research topic, searches DuckDuckGo, extracts top 5 result titles, builds an HTML report and saves as PDF. | `research-report.pdf` |
-| `chatgpt-agent.js` | **Experimental.** Opens ChatGPT, types a question, waits for response, extracts answer and saves to PDF. Unreliable due to React/streaming/WebSocket (see [EXPERIMENTS.md](./EXPERIMENTS.md)). | `chatgpt-response.pdf` |
-| `autonomous-research-agent.js` | Asks for a topic → searches DuckDuckGo → collects top 3 result links → opens each URL → scrapes first 5 `<p>` per page → builds a combined HTML report and saves as PDF. | `research-report.pdf` |
-| `full-page-scraper.js` | Asks for a URL → loads page → extracts title, up to 10 headings, 10 paragraphs, 10 links → prints to console and generates a PDF report. | `scraped-page-report.pdf` |
+| File | Purpose | Output |
+|------|---------|--------|
+| `parallel-browsers.js` | Parallel crawler: 50 tasks across Hacker News, GitHub Trending, ArXiv, Reuters, Wikipedia; extracts title, description, content from each linked page. | `parallel-browsers-output.json` |
+| `performance-analyzer.js` | Measures load time (domcontentloaded) for 10 websites in parallel. | `performance-analyzer-output.json` |
+| `scrape-100-sites.js` | 100 tasks (10 sites repeated): visits each URL, records title and load time. Batched with concurrency limit 5. | `scrape-100-sites-output.json` |
+| `scrape-2.js` | 100 search-query tasks: runs queries (e.g. DuckDuckGo), collects results into a dataset. Batched with concurrency limit 5. | Console (JSON) |
 
-### Config & Docs
+### Other
 
 | File | Purpose |
 |------|--------|
-| `package.json` | Project metadata and dependencies: `puppeteer-core`, `readline-sync`. Defines `main` as `index.js` and a placeholder `test` script. |
-| `package-lock.json` | Lockfile for reproducible `npm install`. |
-| `EXPERIMENTS.md` | Full write-up of all Browserless experiments: setup, what worked, what failed (e.g. ChatGPT, Google), bottlenecks, when to use Browserless, and future ideas. |
+| `package.json` | Dependencies: `puppeteer-core`, `readline-sync` (if needed). |
+| `EXPERIMENTS.md` | Write-up of Browserless experiments and recommendations. |
 
 ---
 
-## How to Run Each Script
-
-Ensure Browserless is running on port 3000, then:
+## How to Run
 
 ```bash
-# Basic demo (Hacker News headlines)
-node demo.js
+# Parallel multi-source crawler → JSON
+node parallel-browsers.js
 
-# Single site screenshot
-node screenshot.js
+# Performance (load times) for 10 sites → JSON
+node performance-analyzer.js
 
-# One GitHub profile screenshot
-node github-screenshot.js
+# 100 site visits (title + load time) → JSON
+node scrape-100-sites.js
 
-# Multiple GitHub profile screenshots
-node multi-github-screenshot.js
-
-# GitHub profile as PDF
-node github-pdf.js
-
-# Research: topic → DuckDuckGo → PDF of result titles
-node research-agent.js
-
-# (Unreliable) ChatGPT question → PDF
-node chatgpt-agent.js
-
-# Research: topic → DuckDuckGo → visit top 3 links → scrape paragraphs → PDF
-node autonomous-research-agent.js
-
-# Full-page scrape: URL → title/headings/paragraphs/links → console + PDF
-node full-page-scraper.js
+# 100 search-query scrape tasks
+node scrape-2.js
 ```
-
-Scripts that use `readline-sync` will prompt in the terminal (e.g. research topic or URL).
 
 ---
 
-## Architecture (high level)
+## Architecture
 
 ```
-Your script (Node)
-    → Puppeteer (puppeteer-core)
-        → connect to ws://localhost:3000
-            → Browserless (Chromium)
-                → Target website
+Node script → Puppeteer (connect) → Browserless (ws://localhost:3000/chromium) → Chromium → Website
 ```
-
-All scripts use `puppeteer.connect({ browserWSEndpoint: "ws://localhost:3000" })` instead of `puppeteer.launch()`.
-
----
-
-## More Detail
-
-For full context—what was tried, what failed, and recommendations—see **[EXPERIMENTS.md](./EXPERIMENTS.md)**.

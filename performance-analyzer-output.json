@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://npmjs.com",
+    "title": "Just a moment...",
+    "loadTime": 667
+  },
+  {
+    "url": "https://python.org",
+    "title": "Welcome to Python.org",
+    "loadTime": 1633
+  },
+  {
+    "url": "https://news.ycombinator.com",
+    "title": "Hacker News",
+    "loadTime": 1716
+  },
+  {
+    "url": "https://nodejs.org",
+    "title": "Node.js — Run JavaScript Everywhere",
+    "loadTime": 1192
+  },
+  {
+    "url": "https://wikipedia.org",
+    "title": "Wikipedia",
+    "loadTime": 3317
+  },
+  {
+    "url": "https://google.com",
+    "title": "Google",
+    "loadTime": 3690
+  },
+  {
+    "url": "https://mozilla.org",
+    "title": "Mozilla - Internet for people, not profit (US)",
+    "loadTime": 4390
+  },
+  {
+    "url": "https://stackoverflow.com",
+    "title": "Newest Questions - Stack Overflow",
+    "loadTime": 4305
+  },
+  {
+    "url": "https://docker.com",
+    "title": "Docker: Accelerated Container Application Development",
+    "loadTime": 4650
+  },
+  {
+    "url": "https://github.com",
+    "title": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub",
+    "loadTime": 4813
+  }
+]
