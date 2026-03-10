@@ -1,0 +1,29 @@
+DARK PATTERN AUDIT REPORT
+==================================================
+URL:        https://www.booking.com
+Page:       Booking.com | Official site | The best hotels, flights, car rentals & accommodations
+Audited:    10/3/2026, 11:41:15 am
+==================================================
+
+FINDINGS: 1 dark patterns detected
+  🔴 HIGH:   0
+  🟡 MEDIUM: 0
+  🟢 LOW:    1
+  👁️  TRACKERS: 8 surveillance scripts
+
+──────────────────────────────────────────────────
+
+1. 🟢 [LOW] Price Anchoring (Strikethrough Prices)
+   Crossed-out "original" prices found — often inflated reference prices to make the current price seem like a better deal than it is.
+   • examples: ["₹ 56,249","₹ 10,030","₹ 3,998"]
+
+──────────────────────────────────────────────────
+SURVEILLANCE TRACKERS DETECTED:
+  • https://securepubads.g.doubleclick.net/tag/js/gpt.js
+  • https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202603050101/pubads_impl.js
+  • https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.booking.com%2F%3Fchal_t%3D1773123070179%26force_referer
+  • https://securepubads.g.doubleclick.net/gampad/ads?pvsid=4762112399627338&correlator=3364844413247693&eid=31096944&output
+  • https://securepubads.g.doubleclick.net/pagead/managed/dict/m202603050101/gpt
+  • https://ad.doubleclick.net/activity;src=4228414;type=views;cat=views;ord=4457146483274;npa=0;auiddc=1185555736.177312307
+  • https://googleads.g.doubleclick.net/pagead/viewthroughconversion/988382855/?random=1773123073230&cv=11&fst=1773123073230
+  • https://cm.g.doubleclick.net/pixel?google_nid=TheTradeDesk&google_cm&google_sc&google_hm=NTVkYTZiNzMtMTdmMi00YTUxLWIzYWM

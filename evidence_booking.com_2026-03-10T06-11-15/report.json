@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "url": "https://www.booking.com",
+    "finalUrl": "https://www.booking.com/?chal_t=1773123070179&force_referer=",
+    "pageTitle": "Booking.com | Official site | The best hotels, flights, car rentals & accommodations",
+    "auditedAt": "2026-03-10T06:11:15.681Z",
+    "tool": "Dark Pattern Detector (browserless + Puppeteer)"
+  },
+  "summary": {
+    "totalFindings": 1,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "trackersDetected": 8
+  },
+  "findings": [
+    {
+      "type": "price_anchoring",
+      "severity": "LOW",
+      "title": "Price Anchoring (Strikethrough Prices)",
+      "description": "Crossed-out \"original\" prices found — often inflated reference prices to make the current price seem like a better deal than it is.",
+      "evidence": {
+        "examples": [
+          "₹ 56,249",
+          "₹ 10,030",
+          "₹ 3,998"
+        ]
+      }
+    }
+  ],
+  "trackers": [
+    {
+      "type": "script",
+      "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+    },
+    {
+      "type": "script",
+      "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202603050101/pubads_impl.js"
+    },
+    {
+      "type": "document",
+      "url": "https://cm.g.doubleclick.net/partnerpixels?url=https%3A%2F%2Fwww.booking.com%2F%3Fchal_t%3D1773123070179%26force_referer"
+    },
+    {
+      "type": "fetch",
+      "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=4762112399627338&correlator=3364844413247693&eid=31096944&output"
+    },
+    {
+      "type": "other",
+      "url": "https://securepubads.g.doubleclick.net/pagead/managed/dict/m202603050101/gpt"
+    },
+    {
+      "type": "fetch",
+      "url": "https://ad.doubleclick.net/activity;src=4228414;type=views;cat=views;ord=4457146483274;npa=0;auiddc=1185555736.177312307"
+    },
+    {
+      "type": "script",
+      "url": "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/988382855/?random=1773123073230&cv=11&fst=1773123073230"
+    },
+    {
+      "type": "document",
+      "url": "https://cm.g.doubleclick.net/pixel?google_nid=TheTradeDesk&google_cm&google_sc&google_hm=NTVkYTZiNzMtMTdmMi00YTUxLWIzYWM"
+    }
+  ]
+}

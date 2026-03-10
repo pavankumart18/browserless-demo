@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Regional Price Detector</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0a0e14;
+  --surface: #0f1419;
+  --card: #141920;
+  --border: #1e2733;
+  --accent: #66c0f4;
+  --accent-dim: #66c0f415;
+  --green: #a3e864;
+  --green-dim: #a3e86415;
+  --red: #ff4444;
+  --red-dim: #ff444415;
+  --amber: #ffb833;
+  --steam-blue: #1b2838;
+  --text: #c6d4df;
+  --muted: #4a6178;
+  --mono: 'Syne Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, #1b283840 0%, transparent 60%),
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+
+.header { margin-bottom: 48px; }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); display: inline-block; }
+h1 {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+h1 .steam { color: var(--accent); }
+.subtitle { margin-top: 16px; font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.6; font-weight: 300; }
+
+.search-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.url-input {
+  flex: 1; min-width: 260px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.url-input:focus { border-color: var(--accent); }
+.url-input::placeholder { color: var(--muted); }
+.btn {
+  background: var(--accent);
+  color: #0a0e14;
+  border: none; border-radius: 4px;
+  padding: 14px 28px;
+  font-family: var(--display);
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.btn:hover { background: #fff; }
+.btn:disabled { background: var(--muted); cursor: not-allowed; }
+
+.examples { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.chip {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 100px; padding: 6px 14px;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  cursor: pointer; transition: all 0.2s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Verdict */
+.verdict-box { border-radius: 6px; padding: 28px 32px; margin-bottom: 32px; display: none; border: 1px solid; }
+.verdict-box.show { display: block; }
+.verdict-box.MASSIVE { background: #a3e86410; border-color: var(--green); }
+.verdict-box.SIGNIFICANT { background: #ffb83310; border-color: var(--amber); }
+.verdict-box.MINOR, .verdict-box.UNIFORM { background: var(--accent-dim); border-color: var(--accent); }
+.verdict-box.ERROR { background: var(--red-dim); border-color: var(--red); }
+
+.v-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+.MASSIVE .v-tag { color: var(--green); }
+.SIGNIFICANT .v-tag { color: var(--amber); }
+.MINOR .v-tag, .UNIFORM .v-tag { color: var(--accent); }
+.ERROR .v-tag { color: var(--red); }
+.v-title { font-family: var(--display); font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.v-detail { font-size: 14px; color: var(--text); line-height: 1.5; }
+
+/* Savings bar */
+.savings-bar { margin-top: 20px; }
+.savings-label { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--green); border-radius: 3px; transition: width 1s ease; width: 0; }
+
+/* Probes grid */
+.probes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
+@media (max-width: 640px) { .probes-grid { grid-template-columns: 1fr; } }
+
+.probe-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+  padding: 22px; position: relative; overflow: hidden; transition: border-color 0.3s;
+}
+.probe-card.running { border-color: var(--accent); }
+.probe-card.running::after {
+  content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  animation: scan 1.2s linear infinite;
+}
+@keyframes scan { 0% { left: -60%; } 100% { left: 120%; } }
+
+.probe-card.cheapest { border-color: var(--green); background: var(--green-dim); }
+.probe-card.expensive { border-color: var(--border); }
+
+.probe-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.probe-flag { font-size: 32px; line-height: 1; }
+.probe-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 2px; background: var(--surface); color: var(--muted);
+}
+.probe-badge.scanning { color: var(--accent); background: var(--accent-dim); animation: pulse 1s ease infinite; }
+.probe-badge.done { color: var(--green); background: var(--green-dim); }
+.probe-badge.cheapest { color: var(--green); background: var(--green-dim); }
+.probe-badge.error { color: var(--red); background: var(--red-dim); }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+.probe-label { font-family: var(--display); font-weight: 700; font-size: 15px; color: #fff; }
+.probe-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.probe-price { font-family: var(--mono); font-size: 28px; color: var(--accent); margin-top: 14px; letter-spacing: -0.02em; }
+.probe-price.cheapest-price { color: var(--green); }
+.probe-price.none { color: var(--muted); font-size: 13px; }
+.probe-usd { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 4px; }
+.probe-usd .usd-val { color: var(--text); }
+.probe-meta { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 6px; }
+
+.ss-strip { margin-top: 14px; border-radius: 3px; overflow: hidden; height: 72px; background: var(--surface); display: flex; align-items: center; justify-content: center; }
+.ss-strip img { width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0.65; }
+.ss-strip .ph { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+/* Price comparison table */
+.cmp-table { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; display: none; margin-bottom: 32px; }
+.cmp-table.show { display: block; }
+.cmp-header { padding: 14px 22px; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; }
+.cmp-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; border-bottom: 1px solid var(--border); }
+.cmp-row:last-child { border-bottom: none; }
+.cmp-row.best { background: var(--green-dim); }
+.cmp-left { display: flex; align-items: center; gap: 12px; }
+.cmp-flag { font-size: 22px; }
+.cmp-name { font-size: 14px; color: var(--text); }
+.cmp-right { text-align: right; }
+.cmp-price { font-family: var(--mono); font-size: 16px; color: var(--accent); }
+.cmp-price.best-price { color: var(--green); }
+.cmp-usd { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 2px; }
+.cmp-savings { font-family: var(--mono); font-size: 11px; color: var(--green); margin-top: 2px; }
+
+/* Log */
+.log { background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 16px; font-family: var(--mono); font-size: 11px; color: var(--muted); max-height: 180px; overflow-y: auto; display: none; }
+.log.show { display: block; }
+.ll { margin-bottom: 3px; }
+.ll .ts { color: #1e2733; }
+.ll .hi { color: var(--accent); }
+.ll .ok { color: var(--green); }
+.ll .err { color: var(--red); }
+
+.idle { text-align: center; padding: 72px 24px; color: var(--muted); }
+.idle .emoji { font-size: 52px; margin-bottom: 20px; }
+.idle p { font-size: 14px; line-height: 1.7; max-width: 420px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="eyebrow">Browserless · 4 Isolated Sessions · Real Regional Data</div>
+    <h1><span class="steam">Steam</span><br>Regional Price<br>Intelligence</h1>
+    <p class="subtitle">Simultaneously loads any Steam game page as 4 different country identities by injecting regional cookies — exposing real price gaps impossible to see from a single browser.</p>
+  </div>
+
+  <div class="search-row">
+    <input class="url-input" id="urlInput" type="text" placeholder="https://store.steampowered.com/app/570  or just  570" />
+    <button class="btn" id="scanBtn" onclick="startScan()">Detect →</button>
+  </div>
+
+  <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-bottom:10px">TRY A GAME:</div>
+  <div class="examples">
+    <div class="chip" onclick="setUrl('570')">Dota 2 (Free)</div>
+    <div class="chip" onclick="setUrl('1091500')">Cyberpunk 2077</div>
+    <div class="chip" onclick="setUrl('1245620')">Elden Ring</div>
+    <div class="chip" onclick="setUrl('892970')">Valheim</div>
+    <div class="chip" onclick="setUrl('1172470')">Apex Legends</div>
+    <div class="chip" onclick="setUrl('730')">CS2 (Free)</div>
+  </div>
+
+  <div class="verdict-box" id="vbox">
+    <div class="v-tag" id="vtag"></div>
+    <div class="v-title" id="vtitle"></div>
+    <div class="v-detail" id="vdetail"></div>
+    <div class="savings-bar" id="savingsBar" style="display:none">
+      <div class="savings-label" id="savingsLabel"></div>
+      <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+    </div>
+  </div>
+
+  <div class="probes-grid" id="grid" style="display:none"></div>
+
+  <div class="cmp-table" id="cmpTable">
+    <div class="cmp-header"><span>Region</span><span>Price · USD equiv · Savings vs US</span></div>
+    <div id="cmpBody"></div>
+  </div>
+
+  <div class="log" id="log"></div>
+
+  <div class="idle" id="idle">
+    <div class="emoji">🎮</div>
+    <p>Enter any Steam game URL or App ID above.<br>We'll load it simultaneously from 4 different regional browser sessions to reveal real price differences.</p>
+  </div>
+</div>
+
+<script>
+let scanning = false;
+const screenshots = {};
+
+function setUrl(v) { document.getElementById('urlInput').value = v; }
+
+function log(msg, cls = '') {
+  const el = document.getElementById('log');
+  el.classList.add('show');
+  const ts = new Date().toLocaleTimeString('en', { hour12: false });
+  const d = document.createElement('div');
+  d.className = 'll';
+  d.innerHTML = `<span class="ts">[${ts}]</span> <span class="${cls}">${msg}</span>`;
+  el.appendChild(d);
+  el.scrollTop = el.scrollHeight;
+}
+
+function initGrid(probes) {
+  document.getElementById('idle').style.display = 'none';
+  const grid = document.getElementById('grid');
+  grid.style.display = 'grid';
+  grid.innerHTML = '';
+  probes.forEach(p => {
+    const c = document.createElement('div');
+    c.className = 'probe-card';
+    c.id = `card-${p.id}`;
+    c.innerHTML = `
+      <div class="probe-top">
+        <div class="probe-flag">${p.icon}</div>
+        <div class="probe-badge" id="badge-${p.id}">WAITING</div>
+      </div>
+      <div class="probe-label">${p.label}</div>
+      <div class="probe-desc">${p.description}</div>
+      <div class="probe-price none" id="price-${p.id}">—</div>
+      <div class="probe-usd" id="usd-${p.id}" style="display:none"></div>
+      <div class="probe-meta" id="meta-${p.id}"></div>
+      <div class="ss-strip" id="ss-${p.id}"><span class="ph">awaiting...</span></div>
+    `;
+    grid.appendChild(c);
+  });
+}
+
+function setRunning(id) {
+  document.getElementById(`card-${id}`).classList.add('running');
+  const b = document.getElementById(`badge-${id}`);
+  b.className = 'probe-badge scanning';
+  b.textContent = 'SCANNING';
+}
+
+function setDone(id, result, isCheapest) {
+  const card = document.getElementById(`card-${id}`);
+  card.classList.remove('running');
+  const badge = document.getElementById(`badge-${id}`);
+  const priceEl = document.getElementById(`price-${id}`);
+  const usdEl = document.getElementById(`usd-${id}`);
+  const metaEl = document.getElementById(`meta-${id}`);
+  const ssEl = document.getElementById(`ss-${id}`);
+
+  if (!result.success || !result.price) {
+    badge.className = 'probe-badge error';
+    badge.textContent = result.price === null ? 'NO PRICE' : 'ERROR';
+    priceEl.className = 'probe-price none';
+    priceEl.textContent = result.error || 'Not found';
+    return;
+  }
+
+  if (isCheapest) {
+    card.classList.add('cheapest');
+    badge.className = 'probe-badge cheapest';
+    badge.textContent = '🏆 CHEAPEST';
+    priceEl.className = 'probe-price cheapest-price';
+  } else {
+    badge.className = 'probe-badge done';
+    badge.textContent = 'DONE';
+    priceEl.className = 'probe-price';
+  }
+
+  priceEl.textContent = result.price;
+
+  if (result.usdEquiv) {
+    usdEl.style.display = 'block';
+    usdEl.innerHTML = `≈ <span class="usd-val">$${result.usdEquiv} USD</span>`;
+  }
+
+  if (result.loadTime) metaEl.textContent = `${result.loadTime}ms`;
+
+  if (screenshots[id]) {
+    ssEl.innerHTML = `<img src="data:image/png;base64,${screenshots[id]}" />`;
+  }
+}
+
+function buildTable(summary, usUSD) {
+  const table = document.getElementById('cmpTable');
+  const body = document.getElementById('cmpBody');
+  table.classList.add('show');
+  body.innerHTML = '';
+
+  const sorted = [...summary].filter(r => r.usdEquiv).sort((a, b) => parseFloat(a.usdEquiv) - parseFloat(b.usdEquiv));
+  const cheapestId = sorted[0]?.id;
+
+  summary.forEach(r => {
+    const isBest = r.id === cheapestId && r.price;
+    const savings = r.usdEquiv && usUSD ? Math.round((1 - parseFloat(r.usdEquiv) / parseFloat(usUSD)) * 100) : 0;
+
+    const row = document.createElement('div');
+    row.className = `cmp-row${isBest ? ' best' : ''}`;
+    row.innerHTML = `
+      <div class="cmp-left">
+        <div class="cmp-flag">${r.icon}</div>
+        <div class="cmp-name">${r.label}</div>
+      </div>
+      <div class="cmp-right">
+        <div class="cmp-price ${isBest ? 'best-price' : ''}">${r.price || '—'}</div>
+        ${r.usdEquiv ? `<div class="cmp-usd">≈ $${r.usdEquiv} USD</div>` : ''}
+        ${savings > 0 ? `<div class="cmp-savings">saves ${savings}%</div>` : ''}
+      </div>
+    `;
+    body.appendChild(row);
+  });
+}
+
+async function startScan() {
+  if (scanning) return;
+  const url = document.getElementById('urlInput').value.trim();
+  if (!url) return;
+
+  scanning = true;
+  document.getElementById('scanBtn').disabled = true;
+  document.getElementById('scanBtn').textContent = 'Scanning...';
+  document.getElementById('log').innerHTML = '';
+  document.getElementById('vbox').className = 'verdict-box';
+  document.getElementById('cmpTable').className = 'cmp-table';
+  Object.keys(screenshots).forEach(k => delete screenshots[k]);
+
+  log(`Scanning: ${url}`, 'hi');
+
+  try {
+    const res = await fetch('http://localhost:4000/api/detect', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      log(err.error || 'Server error', 'err');
+      return;
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = '';
+    let probeResults = {};
+    let cheapestId = null;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop();
+
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        try {
+          const data = JSON.parse(line.slice(6));
+
+          if (data.type === 'start') {
+            initGrid(data.probes);
+            log(`App ID: ${data.appId} — running ${data.probes.length} regional probes`);
+          }
+
+          if (data.type === 'probe_start') {
+            setRunning(data.id);
+            log(`→ Probing ${data.id}...`, 'hi');
+          }
+
+          if (data.type === 'probe_screenshot') {
+            screenshots[data.id] = data.screenshot;
+          }
+
+          if (data.type === 'probe_done') {
+            probeResults[data.id] = data.result;
+            log(`✓ ${data.id}: ${data.result.price || 'no price'} (≈$${data.result.usdEquiv || '?'} USD)`, 'ok');
+          }
+
+          if (data.type === 'analysis') {
+            // Find cheapest
+            const withUSD = data.summary.filter(r => r.usdEquiv);
+            if (withUSD.length) {
+              cheapestId = withUSD.sort((a, b) => parseFloat(a.usdEquiv) - parseFloat(b.usdEquiv))[0].id;
+            }
+
+            // Update all cards now that we know cheapest
+            data.summary.forEach(r => {
+              setDone(r.id, probeResults[r.id] || r, r.id === cheapestId);
+            });
+
+            // Verdict
+            const vbox = document.getElementById('vbox');
+            vbox.className = `verdict-box show ${data.verdict}`;
+            document.getElementById('vtag').textContent = `Regional Pricing: ${data.verdict}`;
+            document.getElementById('vtitle').textContent = {
+              MASSIVE: `🔥 Massive Price Gap Found!`,
+              SIGNIFICANT: `⚡ Significant Regional Difference`,
+              MINOR: `📊 Minor Regional Variation`,
+              UNIFORM: `✅ Uniform Global Pricing`,
+              ERROR: `❌ Could Not Detect Prices`,
+            }[data.verdict] || data.verdict;
+            document.getElementById('vdetail').textContent = data.verdictDetail;
+
+            if (data.savings > 0) {
+              document.getElementById('savingsBar').style.display = 'block';
+              document.getElementById('savingsLabel').textContent = `Cheapest region saves ${data.savings}% vs US price`;
+              setTimeout(() => {
+                document.getElementById('barFill').style.width = `${Math.min(data.savings, 100)}%`;
+              }, 100);
+            }
+
+            const usResult = data.summary.find(r => r.id === 'us');
+            buildTable(data.summary, usResult?.usdEquiv);
+            log(`Done. Verdict: ${data.verdict} — ${data.savings}% max savings`, data.savings > 30 ? 'ok' : 'hi');
+          }
+        } catch {}
+      }
+    }
+  } catch (err) {
+    log(`Error: ${err.message}`, 'err');
+  } finally {
+    scanning = false;
+    document.getElementById('scanBtn').disabled = false;
+    document.getElementById('scanBtn').textContent = 'Detect →';
+  }
+}
+
+document.getElementById('urlInput').addEventListener('keydown', e => { if (e.key === 'Enter') startScan(); });
+</script>
+</body>
+</html>
